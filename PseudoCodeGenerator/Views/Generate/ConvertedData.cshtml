@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "ConvertedData";
+}
+
+<h2>ConvertedData</h2>
+
+<br />
+@Html.TextArea("PseudoCode", @ViewData["PseudoCode"].ToString(), htmlAttributes: new { @class = "form-control", @id = "codeArea" })

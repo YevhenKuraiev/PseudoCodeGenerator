@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("ConvertedData", "Generate", FormMethod.Post))
+{
+    <br />
+    @Html.TextArea("code", htmlAttributes: new { @class = "form-control", @id = "codeArea", @placeholder = "Вставьте код C#" })
+    <br />
+    <input class="btn btn-default" type="submit" value="Преобразовать" >
+}
