@@ -1,28 +1,159 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: lightgray;
+    height: 100%;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 90px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select {
     max-width: 280px;
 }
 
-#codeArea {
-    width: 1000px !important;
-    height: 450px !important;
+.codeArea {
+    width: 900px !important;
+    height: 480px !important;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: rgba(0,0,0,0.3) 0 3px 3px 0px;
+    height: 100vh;
+    background-color: white;
+    resize: none;
+    display: inline-block;
+    outline: none;
+    border: none;
 }
+
+#ChoiceWhatToReplace {
+    background-color: #eff0f2;
+    width: 200px;
+    height: 480px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    box-shadow: rgba(0,0,0,0.3) 0 3px 3px 0px;
+    background-color: white;
+}
+
+#keywords {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.navbar {
+    box-shadow: rgba(0,0,0,0.3) 0 3px 3px 0px;
+}
+
+.chooseKeywords {
+    list-style-type: none;
+}
+
+#convert{
+    display:inline-block;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #263347;
+    color:white;
+}
+
+footer > p {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+textarea::placeholder {
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+textarea:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+textarea::-webkit-input-placeholder {
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+textarea::-moz-placeholder {
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+    -moz-transition: opacity 0.7s ease;
+}
+
+textarea:-ms-input-placeholder {
+    font-size: 50px;
+    text-align: center;
+    line-height: 400px;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+textarea:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    -moz-transition: opacity 0.7s ease;
+}
+
+textarea:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+}
+
+
+
+/*#shrink {
+    top: 55px;
+    left: 965px;
+    height: 450px;
+    border-radius: 25px;
+    background-color: lightgrey;
+    display: inline-block;
+    border: 1px solid lightgrey;
+    box-shadow: rgba(0,0,0,1) 0px 0px 15px inset
+}
+
+#shrink > div {
+    width: 45px;
+    height: 45px;
+    margin:5px;
+    border-radius:25px;
+    background-color: transparent;
+    box-shadow: rgba(0,0,0,1) 0px 0px 5px, rgba(0,0,255,1) 0px 0px 15px inset;
+}*/

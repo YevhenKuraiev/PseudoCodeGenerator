@@ -1,11 +1,60 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Данные для преобразования";
 }
 
 @using (Html.BeginForm("ConvertedData", "Generate", FormMethod.Post))
 {
     <br />
-    @Html.TextArea("code", htmlAttributes: new { @class = "form-control", @id = "codeArea", @placeholder = "Вставьте код C#" })
+        @Html.TextArea("code", htmlAttributes: new { @class = "codeArea", @placeholder = "Вставьте код C#" })
+    <div id="ChoiceWhatToReplace">
+        <p id="keywords">Ключевые слова</p>
+        <hr />
+        <ul class="chooseKeywords">
+            <li>
+                <input type="checkbox" id="for" checked="checked" />
+                <label for="for">for</label>
+            </li>
+            <li>
+                <input type="checkbox" id="foreach" checked="checked" />
+                <label for="foreach">foreach</label>
+            </li>
+            <li>
+                <input type="checkbox" id="while" checked="checked" />
+                <label for="while">while</label>
+            </li>
+            <li>
+                <input type="checkbox" id="do-while" checked="checked" />
+                <label for="do-while">do-while</label>
+            </li>
+        </ul>
+        <hr />
+        <ul class="chooseKeywords">
+            <li>
+                <input type="checkbox" id="if-else" checked="checked" />
+                <label for="if-else">if-else</label>
+            </li>
+        </ul>
+        <hr />
+
+        <ul class="chooseKeywords">
+            <li>
+                <input type="checkbox" id="return" checked="checked" />
+                <label for="return">return</label>
+            </li>
+            <li>
+                <input type="checkbox" id="continue" checked="checked" />
+                <label for="continue">continue</label>
+            </li>
+            <li>
+                <input type="checkbox" id="break" checked="checked" />
+                <label for="break">break</label>
+            </li>
+        </ul>
+        <hr />
+        <div style="text-align:center">
+            <input id="convert" class="btn btn-primary" type="submit" value="Преобразовать">
+        </div>
+    </div>
     <br />
-    <input class="btn btn-default" type="submit" value="Преобразовать" >
+    <br />
 }

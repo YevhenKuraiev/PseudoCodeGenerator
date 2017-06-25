@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SearchForKeywords
 {
@@ -11,6 +7,17 @@ namespace SearchForKeywords
         public static string[] ToStringArray(this string line)
         {
             string[] arrayWords = line.Split(' ');
+            //string[] arrayWords = new string[0];
+            //int count = 0;
+            //for (int i = 0; i < tempArrayWords.Length; i++)
+            //{
+            //    if (tempArrayWords[i] != "")
+            //    {
+            //        Array.Resize(ref arrayWords, arrayWords.Length + 1);
+            //        arrayWords[count] = tempArrayWords[i];
+            //        count++;
+            //    }
+            //}
             return arrayWords;
         }
 
@@ -22,52 +29,6 @@ namespace SearchForKeywords
                 result += array[i] + ' ';
             }
             return result;
-        }
-
-        public static string[] ReplaceFor(this string[] array, string keyword)
-        {
-            int indexReplaceFor = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] == keyword)
-                {
-                    array[i] = "ДЛЯ";
-                    indexReplaceFor++;
-                    for (int j = ++i; j < array.Length; j++)
-                    {
-                        int index = 0;
-                        int indexOpen = 0;
-                        int indexClose = 0;
-                        if (array[j].Contains("{") && index == 0 && indexReplaceFor == 1)
-                        {
-                            array[j] = "ЦИКЛ\n";
-                            index++;
-                            indexReplaceFor--;
-                            indexOpen++;
-                            continue;
-                        }
-                        else if (array[j].Contains("{") && index != 0)
-                        {
-                            index++;
-                            indexOpen++;
-                            continue;
-                        }
-                        else if (array[j].Contains("}") && index != 0)
-                        {
-                            index--;
-                            indexClose++;
-                            continue;
-                        }
-                        else if (array[j].Contains("}") && index == 0 && indexOpen == indexClose)
-                        {
-                            array[j] = "КЦИКЛ\n";
-                            i++;
-                            break;
-                        }
-                    }
-                }
-            }
-            return array;
         }
     }
 }
