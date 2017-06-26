@@ -22,8 +22,8 @@ select {
     max-width: 280px;
 }
 
-.codeArea {
-    width: 900px !important;
+#codeArea {
+    min-width: 900px !important;
     height: 480px !important;
     display: inline-block;
     vertical-align: top;
@@ -69,17 +69,31 @@ select {
 footer {
     position: absolute;
     left: 0;
-    bottom: 0px;
+    bottom: -2px;
     width: 100%;
-    height: 50px;
+    height: 70px;
     background-color: #263347;
     color:white;
+    
 }
 
-footer > p {
-    vertical-align: middle;
-    display: inline-block;
+#nameDeveloper {
+    margin: 5px 0 0 0;
 }
+
+#mail{
+    color:darkcyan;
+    text-decoration:none;
+}
+
+#mail:hover {
+    color: white;
+}
+
+footer > div {
+    margin-top: 10px;
+}
+
 
 
 textarea::placeholder {

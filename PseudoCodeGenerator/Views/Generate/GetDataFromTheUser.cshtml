@@ -1,11 +1,9 @@
-﻿@{
-    ViewBag.Title = "Данные для преобразования";
-}
-
-@using (Html.BeginForm("ConvertedData", "Generate", FormMethod.Post))
+﻿@using (Ajax.BeginForm("ConvertData", new AjaxOptions { UpdateTargetId = "codeArea" }))
 {
     <br />
-        @Html.TextArea("code", htmlAttributes: new { @class = "codeArea", @placeholder = "Вставьте код C#" })
+    <div id="codeArea">
+        @Html.TextArea("code", htmlAttributes: new { @id = "codeArea", @placeholder = "Вставьте код C#" })
+    </div>
     <div id="ChoiceWhatToReplace">
         <p id="keywords">Ключевые слова</p>
         <hr />
@@ -58,3 +56,5 @@
     <br />
     <br />
 }
+
+

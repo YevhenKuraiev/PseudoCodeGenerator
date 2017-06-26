@@ -4,11 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – Преобразователь кода C# в псевдокод</title>
+    <title>C# => псевдокод</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/Scripts/jquery-3.1.1.min.js")
     @*@Scripts.Render("~/Scripts/myScripts.js")*@
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    @*<script type="text/javascript" src="~/Content/plagin/scripts/shCore.js"></script>
+    <script type="text/javascript" src="~/Content/plagin/scripts/shBrushCSharp.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/Content/plagin/styles/shCore.css">
+    <link type="text/css" rel="stylesheet" href="~/Content/plagin/styles/shThemeDefault.css">
+    <script type="text/javascript">
+        SyntaxHighlighter.config.clipboardSwf = '~/Content/plagin/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+    </script>*@
     
 </head>
 <body>
@@ -27,7 +36,11 @@
     <div class="container body-content">
         @RenderBody()
         <footer>
-            <p>&copy; @DateTime.Now.Year – Developed by Yevhen Kuraiev</p>
+            <div>
+                <a id="mail" href="mailto:yevhen.kuraiev@gmail.com">yevhen.kuraiev@gmail.com</a>
+                <br />
+                <p id="nameDeveloper">&copy; @DateTime.Now.Year – Developed by Yevhen Kuraiev</p>
+            </div>
         </footer>
     </div>
 

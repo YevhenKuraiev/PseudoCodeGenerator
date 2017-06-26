@@ -1,0 +1,6 @@
+﻿@using (Ajax.BeginForm("ConvertData", new AjaxOptions { UpdateTargetId = "codeArea" }))
+{
+<textarea name="code" id="codeArea">@ViewData["PseudoCode"].ToString()</textarea>
+}
+
+
