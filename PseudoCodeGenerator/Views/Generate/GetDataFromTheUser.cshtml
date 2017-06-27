@@ -1,4 +1,6 @@
-﻿@using (Ajax.BeginForm("ConvertData", new AjaxOptions { UpdateTargetId = "codeArea" }))
+﻿@model PseudoCodeGenerator.Models.Keywords
+
+@using (Ajax.BeginForm("ConvertData", new AjaxOptions { UpdateTargetId = "codeArea" }))
 {
     <br />
     <div id="codeArea">
@@ -9,26 +11,26 @@
         <hr />
         <ul class="chooseKeywords">
             <li>
-                <input type="checkbox" id="for" checked="checked" />
+                <input type="checkbox" id="for" name="CycleFor" checked="checked" />
                 <label for="for">for</label>
             </li>
             <li>
-                <input type="checkbox" id="foreach" checked="checked" />
+                <input type="checkbox" id="foreach" name="CycleForeach" checked="checked" />
                 <label for="foreach">foreach</label>
             </li>
             <li>
-                <input type="checkbox" id="while" checked="checked" />
+                <input type="checkbox" id="while" name="CycleWhile" checked="checked" />
                 <label for="while">while</label>
             </li>
             <li>
-                <input type="checkbox" id="do-while" checked="checked" />
+                <input type="checkbox" id="do-while" name="CycleDoWhile" checked="checked" />
                 <label for="do-while">do-while</label>
             </li>
         </ul>
         <hr />
         <ul class="chooseKeywords">
             <li>
-                <input type="checkbox" id="if-else" checked="checked" />
+                <input type="checkbox" id="if-else" name="IfElse" checked="checked" />
                 <label for="if-else">if-else</label>
             </li>
         </ul>
@@ -36,15 +38,15 @@
 
         <ul class="chooseKeywords">
             <li>
-                <input type="checkbox" id="return" checked="checked" />
+                <input type="checkbox" id="return" name="Return" checked="checked" />
                 <label for="return">return</label>
             </li>
             <li>
-                <input type="checkbox" id="continue" checked="checked" />
+                <input type="checkbox" id="continue" name="Continue" checked="checked" />
                 <label for="continue">continue</label>
             </li>
             <li>
-                <input type="checkbox" id="break" checked="checked" />
+                <input type="checkbox" id="break" name="Break" checked="checked" />
                 <label for="break">break</label>
             </li>
         </ul>
