@@ -2,7 +2,7 @@
 {
     public class Replace
     {
-        private string[] _arrayWords { get; set; }
+        public string[] _arrayWords { get; set; }
 
         public Replace(string code) => _arrayWords = code.ToStringArray();
 

@@ -18,14 +18,20 @@ namespace PseudoCodeGenerator.Controllers
         [ValidateInput(false)]
         public ActionResult ConvertData(string code, Keywords keywords)
         {
-            Replace replace = new Replace(code);
-            replace.Cycles(keywords.CycleFor, keywords.CycleForeach, keywords.CycleWhile, keywords.CycleDoWhile);
-            replace.Conditions(keywords.IfElse);
-            replace.OtherKeywords(keywords.Return, keywords.Continue, keywords.Break);
-            replace.StartAndEndFunctions();
-            ViewData["PseudoCode"] = replace.GetConvertedString();
-            return PartialView();
+            try
+            {
+                Replace replace = new Replace(code);
+                replace.Cycles(keywords.CycleFor, keywords.CycleForeach, keywords.CycleWhile, keywords.CycleDoWhile);
+                replace.Conditions(keywords.IfElse);
+                replace.OtherKeywords(keywords.Return, keywords.Continue, keywords.Break);
+                replace.StartAndEndFunctions();
+                ViewData["PseudoCode"] = replace.GetConvertedString();
+                return PartialView();
+            }
+            catch (Exception)
+            {
+                return View("Error");
+            }
         }
-
     }
 }
