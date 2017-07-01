@@ -13,7 +13,6 @@ namespace PseudoCodeGenerator.Controllers
             Keywords keywords = new Keywords();
             return View("GetDataFromTheUser", keywords);
         }
-
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult ConvertData(string code, Keywords keywords)
