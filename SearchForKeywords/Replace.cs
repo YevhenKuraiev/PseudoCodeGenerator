@@ -10,6 +10,46 @@
 
         public void Cycles(string cycleFor, string cycleForeach, string cycleWhile, string cycleDoWhile)
         {
+            if (cycleDoWhile == "on")
+            {
+                char[] charsToTrim = { '\r', '\n' };
+                int indexOpen = 0, indexClose = 0, indexReplaceDo = 0;
+                for (int i = 0; i < _arrayWords.Length; i++)
+                {
+                    bool open = false, close = false;
+                    if (_arrayWords[i].Trim(charsToTrim) == "do")
+                    {
+                        _arrayWords[i] = "ДЕЛАТЬ\n";
+                        indexReplaceDo++;
+                        for (int j = ++i; j < _arrayWords.Length; j++)
+                        {
+                            if (_arrayWords[j].Contains("{") && !open)
+                            {
+                                _arrayWords[j] = "ЦИКЛ\n";
+                                open = true;
+                            }
+                            else if (_arrayWords[j].Contains("}") && !close && indexClose == indexOpen)
+                            {
+                                _arrayWords[j] = "КЦИКЛ";
+                                close = true;
+                            }
+                            else if (_arrayWords[j].Contains("while") && open && close)
+                            {
+                                _arrayWords[j] = "ПОКА";
+                                break;
+                            }
+                            else if (_arrayWords[j].Contains("{"))
+                            {
+                                indexOpen++;
+                            }
+                            else if (_arrayWords[j].Contains("}"))
+                            {
+                                indexClose++;
+                            }
+                        }
+                    }
+                }
+            }
             if (cycleFor == "on" || cycleForeach == "on" || cycleWhile == "on")
             {
                 int indexOpen = 0, indexClose = 0, indexReplaceCycle = 0;
@@ -47,34 +87,8 @@
                     }
                 }
             }
-            if (cycleDoWhile == "on")
-            {
-                char[] charsToTrim = { '\r', '\n' };
-                for (int i = 0; i < _arrayWords.Length; i++)
-                {
-                    bool open = false, close = false;
-                    if (_arrayWords[i].Trim(charsToTrim) == "do")
-                    {
-                        _arrayWords[i] = "ДЕЛАТЬ\n";
-                        for (int j = ++i; j < _arrayWords.Length; j++)
-                        {
-                            if (_arrayWords[j].Contains("{"))
-                            {
-                                _arrayWords[j] = "ЦИКЛ\n";
-                            }
-                            else if (_arrayWords[j].Contains("}"))
-                            {
-                                _arrayWords[j] = "КЦИКЛ\n";
-                            }
-                            else if (_arrayWords[j].Contains("while") && open && close)
-                            {
-                                _arrayWords[j] = "ПОКА";
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+            
+
         }
 
         public void Conditions(string ifElse)
@@ -141,32 +155,44 @@
 
         public void StartAndEndFunctions()
         {
-            bool open = false, close = false;
+            int indexOpen = 0, indexClose = 0;
+            bool open = false, close = false, isBegin = false;
             for (int i = 0; i < _arrayWords.Length; i++)
             {
-                if (_arrayWords[i].Contains("{"))
+                if (_arrayWords[i].Contains("{") && !isBegin)
                 {
                     for (int j = i; j >= 0; j--)
                     {
-                        if (_arrayWords[j].Contains(")"))
+                        if (_arrayWords[j].Contains(")") && !open)
                         {
                             open = true;
                         }
-                        else if (_arrayWords[j].Contains("("))
+                        else if (_arrayWords[j].Contains("(") && !close)
                         {
                             close = true;
                         }
                         if (open && close)
                         {
                             _arrayWords[i] = "НАЧАЛО\n";
+                            isBegin = true;
+                            break;
                         }
                     }
                 }
-                else if (_arrayWords[i].Contains("}") && open && close)
+                else if (_arrayWords[i].Contains("}") && open && close && isBegin && indexClose == indexOpen)
                 {
                     _arrayWords[i] = "КОНЕЦ\n\n";
                     open = false;
                     close = false;
+                    isBegin = false;
+                }
+                else if (_arrayWords[i].Contains("{"))
+                {
+                    indexOpen++;
+                }
+                else if (_arrayWords[i].Contains("}"))
+                {
+                    indexClose++;
                 }
             }
         }
