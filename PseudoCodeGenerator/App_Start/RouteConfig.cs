@@ -16,7 +16,7 @@ namespace PseudoCodeGenerator
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Generate", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Generate", action = "Pseudocode", id = UrlParameter.Optional }
             );
         }
     }
